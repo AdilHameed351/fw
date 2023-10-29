@@ -12,13 +12,14 @@ const Signup = () => {
         username: "",
         password: "",
     });
+    axios.defaults.withCredentials =  true;
     const change = (e) => {
         const { name, value } = e.target;
         setInputs({ ...Inputs, [name]: value });
     };
     const submit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:2000/api/v1/register", Inputs).then((response) => {
+        await axios.post("https://fw-api.vercel.app/api/v1/register", Inputs).then((response) => {
             if (response.data.message === "User Already Exists") {
                 alert(response.data.message);
             } else {
