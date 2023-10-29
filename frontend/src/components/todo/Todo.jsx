@@ -35,7 +35,7 @@ const Todo = () => {
                 setArray([...Array, Inputs]);
                 setInputs({ title: "", body: "" });
                 toast.success("Your Task is Added");
-                toast.error("Your Task Is Not Saved! Please SignU1p");
+                toast.error("Your Task Is Not Saved! Please SignUp");
             }
         }
     };
@@ -74,12 +74,12 @@ const Todo = () => {
     <>
     <div className="todo">
         <ToastContainer />
-        <div className="todo-main container d-flex flex-column justify-content-center align-items-center my-4">
-            <div className="d-flex flex-column todo-inputs-div w-75 p-1">
+        <div className="todo-main container d-flex flex-column justify-content-center align-items-center my-4 p-lg-2 p-4">
+            <div className="d-flex flex-column todo-inputs-div w-100 p-1">
                 <input type="text" placeholder="TITLE" className="my-2 p-2 todo-inputs" value={Inputs.title} name="title" onClick={show} onChange={change} />
                 <textarea id="textarea" type="text" placeholder="BODY" className="p-2 todo-inputs" value={Inputs.body} name="body" onChange={change} />
             </div>
-            <div className="w-lg-50 w-100 d-flex justify-content-end my-3">
+            <div className="w-100 d-flex justify-content-end my-3">
                 <button className="home-btn px-2 py-1" onClick={submit}>Add</button>
             </div>
         </div>
