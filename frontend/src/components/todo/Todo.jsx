@@ -19,12 +19,13 @@ const Todo = () => {
         const { name, value } = e.target;
         setInputs({ ...Inputs, [name]: value });
     };
+    axios.defaults.withCredentials = true;
     const submit = async (e) => {
         if (Inputs.title === "" || Inputs.body === "") {
             toast.error("Title or Body Should Not be Empty");
         } else {
             if (id) {
-                await axios.post("http://localhost:2000/api/v2/addTask", {title: Inputs.title, body: Inputs.body, id: id})
+                await axios.post("https://fw-api.vercel.app/api/v2/addTask", {title: Inputs.title, body: Inputs.body, id: id})
                 .then((response) => {
                     console.log(response);
                 });
@@ -40,7 +41,7 @@ const Todo = () => {
     };
     const del = async (Cardid) => {
         if (id) {
-            await axios.delete(`http://localhost:2000/api/v2/deleteTask/${Cardid}`, { data: { id: id }})
+            await axios.delete(`https://fw-api.vercel.app/api/v2/deleteTask/${Cardid}`, { data: { id: id }})
             .then(() => {
                 toast.success("Your Task Is Deleted");
             });
@@ -60,7 +61,7 @@ const Todo = () => {
     useEffect(() => {
         if (id) {
             const fetch = async () => {
-                await axios.get(`http://localhost:2000/api/v2/getTasks/${id}`)
+                await axios.get(`https://fw-api.vercel.app/api/v2/getTasks/${id}`)
                 .then((response) => {
                     setArray(response.data.list);
                 });
