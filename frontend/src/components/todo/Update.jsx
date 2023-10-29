@@ -13,12 +13,13 @@ const Update = ({ display, update }) => {
     title: "",
     body: "",
   });
+  axios.defaults.withCredentials = true;
   const change = (e) => {
     const { name, value } = e.target;
     setInputs({ ...Inputs, [name]: value });
   };
   const submit = async () => {
-    await axios.put(`http://localhost:2000/api/v2/updateTask/${update._id}`, Inputs).then((response) => {
+    await axios.put(`https://fw-api.vercel.app/api/v2/updateTask/${update._id}`, Inputs).then((response) => {
       toast.success("Your Task Is Updated");
     });
     display("none");
