@@ -1,0 +1,26 @@
+.user-png {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    padding:2px;
+}
+
+.navbar-brand b {
+    color: rgba(255, 0, 0, 0.836);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar-brand:hover b {
+    color: #000;
+}
+
+.btn-nav {
+    background-color: rgba(255, 0, 0, 0.87);
+    border-radius: 5px;
+    color: #fff !important;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+}
