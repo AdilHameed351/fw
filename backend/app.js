@@ -6,8 +6,13 @@ require("./conn/conn");
 const auth = require("./routes/auth");
 const list = require("./routes/list");
 
+app.use(cors(
+    {
+        origin: ["https://fw-swart.vercel.app/"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+));
 app.use(express.json());
-app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("Hello");
