@@ -14,13 +14,14 @@ const SignIn = () => {
         email: "",
         password: "",
     });
+    axios.defaults.withCredentials = true;
     const change = (e) => {
         const { name, value } = e.target;
         setInputs({ ...Inputs, [name]: value });
     };
     const submit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:2000/api/v1/signin", Inputs).then((response) => {
+        await axios.post("https://fw-api.vercel.app/api/v1/signin", Inputs).then((response) => {
             sessionStorage.setItem("id", response.data.others._id);
             dispatch(authActions.login());
             history("/todo");
